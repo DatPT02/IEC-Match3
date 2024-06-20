@@ -6,6 +6,11 @@ public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler Instance;
 
+    [Header("SkinData")]
+    [SerializeField] private NormalItemSkinData m_NormalItemSkinData;
+    [SerializeField] private BonusItemSkinData m_BonusItemSkinData;
+
+    [Space(5)][Header("Object Pool Data")]
     [SerializeField] private int m_Amount;
     [SerializeField] private GameObject[] m_NormalItems;
     [SerializeField] private GameObject[] m_BonusItems;
@@ -50,6 +55,17 @@ public class ObjectPooler : MonoBehaviour
     void SetNewObject(GameObject obj)
     {
         GameObject newObj = Instantiate(obj, this.transform);
+
+        Sprite sprite = m_NormalItemSkinData.GetSkinByPrefabName("prefabs/" + obj.name);
+        if (sprite != null)
+            newObj.GetComponent<SpriteRenderer>().sprite = sprite;
+        else
+        {
+            sprite = m_BonusItemSkinData.GetSkinByPrefabName("prefabs/" + obj.name);
+            if (sprite != null)
+                newObj.GetComponent<SpriteRenderer>().sprite = sprite;
+        }
+
 
         if (!m_ObjectsOfType.ContainsKey("prefabs/" + obj.name))
         {

@@ -610,6 +610,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1487e5b847a7304488c44eea74d1c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_NormalItemSkinData: {fileID: 11400000, guid: c6b4234281d3cd941a3ffc8e1d3a65ef,
+    type: 2}
+  m_BonusItemSkinData: {fileID: 11400000, guid: b1d0d87db78d5a44da6b8b05157241b8,
+    type: 2}
   m_Amount: 15
   m_NormalItems:
   - {fileID: 1645311756642076403, guid: 42636182d7ad561418687da1a9301f13, type: 3}
