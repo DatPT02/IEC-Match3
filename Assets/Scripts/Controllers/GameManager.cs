@@ -53,6 +53,11 @@ public class GameManager : MonoBehaviour
 
         m_uiMenu = FindObjectOfType<UIMainManager>();
         m_uiMenu.Setup(this);
+
+        m_boardController = new GameObject("BoardController").AddComponent<BoardController>();
+        m_boardController.Init(this, m_gameSettings);
+        m_boardController.Reset();
+        m_boardController.gameObject.SetActive(false);
     }
 
     void Start()
@@ -83,7 +88,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(eLevelMode mode)
     {
-        m_boardController = new GameObject("BoardController").AddComponent<BoardController>();
+        //m_boardController = new GameObject("BoardController").AddComponent<BoardController>();
+        m_boardController.gameObject.SetActive(true);
         m_boardController.StartGame(this, m_gameSettings);
 
         if (mode == eLevelMode.MOVES)
@@ -112,8 +118,10 @@ public class GameManager : MonoBehaviour
         if (m_boardController)
         {
             m_boardController.Clear();
-            Destroy(m_boardController.gameObject);
-            m_boardController = null;
+            m_boardController.Reset();
+            m_boardController.gameObject.SetActive(false);
+            //Destroy(m_boardController.gameObject);
+            //m_boardController = null;
         }
     }
 

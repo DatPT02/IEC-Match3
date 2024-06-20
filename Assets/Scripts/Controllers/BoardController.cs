@@ -33,6 +33,21 @@ public class BoardController : MonoBehaviour
 
     public void StartGame(GameManager gameManager, GameSettings gameSettings)
     {
+        //m_gameManager = gameManager;
+
+        //m_gameSettings = gameSettings;
+
+        //m_gameManager.StateChangedAction += OnGameStateChange;
+
+        //m_cam = Camera.main;
+
+        //m_board = new Board(this.transform, gameSettings);
+
+        Fill();
+    }
+
+    public void Init(GameManager gameManager, GameSettings gameSettings)
+    {
         m_gameManager = gameManager;
 
         m_gameSettings = gameSettings;
@@ -42,8 +57,12 @@ public class BoardController : MonoBehaviour
         m_cam = Camera.main;
 
         m_board = new Board(this.transform, gameSettings);
+    }
 
-        Fill();
+    public void Reset()
+    {
+        IsBusy = true;
+        m_gameOver = false;
     }
 
     private void Fill()

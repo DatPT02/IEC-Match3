@@ -669,8 +669,8 @@ public class Board
                 Cell cell = m_cells[x, y];
                 cell.Clear();
 
-                GameObject.Destroy(cell.gameObject);
-                m_cells[x, y] = null;
+                //GameObject.Destroy(cell.gameObject);
+                //m_cells[x, y] = null;
             }
         }
     }
