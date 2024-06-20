@@ -18,7 +18,7 @@ public class NormalItemSkinData : ScriptableObject
         return null;
     }
 
-    private string GetPrefabName(NormalItem.eNormalType normalType)
+    public string GetPrefabName(NormalItem.eNormalType normalType)
     {
         string prefabName = null;
         switch (normalType)

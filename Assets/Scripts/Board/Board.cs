@@ -147,7 +147,24 @@ public class Board
 
                 NormalItem item = new NormalItem();
 
-                item.SetType(Utils.GetRandomNormalType());
+                #region get all neighbour types
+                HashSet<NormalItem.eNormalType> neighbourTypes = new HashSet<NormalItem.eNormalType>();
+
+                if (cell.NeighbourBottom != null && cell.NeighbourBottom.Item is NormalItem)
+                    neighbourTypes.Add((cell.NeighbourBottom.Item as NormalItem).ItemType);
+
+                if (cell.NeighbourUp != null && cell.NeighbourUp.Item is NormalItem)
+                    neighbourTypes.Add((cell.NeighbourUp.Item as NormalItem).ItemType);
+
+                if (cell.NeighbourLeft != null && cell.NeighbourLeft.Item is NormalItem)
+                    neighbourTypes.Add((cell.NeighbourLeft.Item as NormalItem).ItemType);
+
+                if (cell.NeighbourRight != null && cell.NeighbourRight.Item is NormalItem)
+                    neighbourTypes.Add((cell.NeighbourRight.Item as NormalItem).ItemType);
+                #endregion
+
+                //item.SetType(Utils.GetRandomNormalType());
+                item.SetType(ObjectPooler.Instance.GetPriorityTypeExcept(neighbourTypes));
                 item.SetView();
                 item.SetViewRoot(m_root);
 

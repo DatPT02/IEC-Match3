@@ -17,6 +17,38 @@ public class NormalItem : Item
 
     public eNormalType ItemType;
 
+    public static eNormalType GetTypeFromPrefabName(string prefabName)
+    {
+        eNormalType type = eNormalType.TYPE_ONE;
+        switch (prefabName)
+        {
+            case Constants.PREFAB_NORMAL_TYPE_ONE:
+                type = eNormalType.TYPE_ONE;
+                break;
+            case Constants.PREFAB_NORMAL_TYPE_TWO:
+                type = eNormalType.TYPE_TWO;
+                break;
+            case Constants.PREFAB_NORMAL_TYPE_THREE:
+                type = eNormalType.TYPE_THREE;
+                break;
+            case Constants.PREFAB_NORMAL_TYPE_FOUR:
+                type = eNormalType.TYPE_FOUR;
+                break;
+            case Constants.PREFAB_NORMAL_TYPE_FIVE:
+                type = eNormalType.TYPE_FIVE;
+                break;
+            case Constants.PREFAB_NORMAL_TYPE_SIX:
+                type = eNormalType.TYPE_SIX;
+                break;
+            case Constants.PREFAB_NORMAL_TYPE_SEVEN:
+                type = eNormalType.TYPE_SEVEN;
+                break;
+        }
+
+        return type;
+    }
+
+
     public void SetType(eNormalType type)
     {
         ItemType = type;
