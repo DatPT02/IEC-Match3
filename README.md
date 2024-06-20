@@ -13,3 +13,7 @@ public class PrefabData
 ```
 
 Then in the object pool we would hold arrays of PrefabDatas instead of GameObjects.
+
+Another way of doing this is to have separate scripts on the prefabs themselves, which hold necessary data ( in this case only the type but as the project expands more info can be added).
+
+These changes aim to reduce the complexity of getting Prefabs based on their types. If we separate the object pool to smaller sets based on their types, we can easily get the needed object.
