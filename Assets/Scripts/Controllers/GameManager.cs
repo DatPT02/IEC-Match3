@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public eLevelMode CurrentLevelMode { get; private set; }
+
 
     private GameSettings m_gameSettings;
 
@@ -88,6 +90,8 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(eLevelMode mode)
     {
+        CurrentLevelMode = mode;
+
         //m_boardController = new GameObject("BoardController").AddComponent<BoardController>();
         m_boardController.gameObject.SetActive(true);
         m_boardController.StartGame(this, m_gameSettings);
