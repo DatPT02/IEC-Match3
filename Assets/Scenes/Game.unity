@@ -1956,6 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnClose: {fileID: 1111860661}
+  btnRestart: {fileID: 659071292}
 --- !u!222 &1617975178
 CanvasRenderer:
   m_ObjectHideFlags: 0
